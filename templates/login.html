@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-		<title>Contacto</title>
-     <!-- <link rel="icon" type="image/x-icon" href="/static/tabICN.ico"> -->
-		<link rel="stylesheet" href="static\style.css">
-		
-    </head>
-    <body>
-      <div class="center">
-        <h1>Login</h1>
-        <form action="{{url_for('home')}}" method="POST">
-            <div class="txt_field">
-              <input type="text" name="Username" required>
-              <span></span>
-                <label>Email</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" name="Password" required>
-                <span></span>
-                <label>Password</label>
-            </div>
-            <div class="pass">Forgot Password </div>
-            <input type="submit" value="Login" name="Submit">
-            <div class="signup_link">
-              Not a member?<a href="{{url_for('registerForm')}}">Signup</a>
-            </div>
-        </form>
-      </div>
-        
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Contacto</title>
+    <!-- <link rel="icon" type="image/x-icon" href="/static/tabICN.ico"> -->
+    <link rel="stylesheet" href="static\style.css">
 
+</head>
+<body>
+<div class="center">
+    <h1>Login</h1>
+    <form method="POST">
+        <div class="txt_field">
+            {#
+in python, you get the form name from the name attribute,
+that's why you do not get the correct info from the form
+#}
+            <input type="email" name="email" required>
+            <span></span>
+            <label>Email</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="password" required>
+            <span></span>
+            <label>Password</label>
+        </div>
+        <div class="pass">Forgot Password</div>
+        <input type="submit" value="Login" name="Submit">
+        <div class="signup_link">
+            Not a member?<a href="{{ url_for('registerForm') }}">Signup</a>
+        </div>
+    </form>
+</div>
 
-
+</body>
 
 
 </html>
